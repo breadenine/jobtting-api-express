@@ -2,7 +2,7 @@
 // import { SERVICE_KEY } from '../../config'
 // import { uuid } from '../../utils/uuid'
 
-// const debug = require('debug')('jobtting-api-express:server')
+const debug = require('debug')('jobtting-api-express:server')
 
 // require('dotenv').config()
 
@@ -54,7 +54,7 @@ const sampleData = [
   }
 ]
 
-const getIndex = (req, res, next) => {
+const list = (req, res, next) => {
   return res.json(sampleData)
 }
 
@@ -64,4 +64,38 @@ const detail = (req, res, next) => {
   return res.json(result)
 }
 
-export { getIndex, detail }
+const create = (req, res, next) => {
+  const data = req.body
+
+  sampleData.push({
+    id: sampleData.length,
+    ...data
+  })
+
+  res.status(200)
+  return res.json(data)
+}
+
+const update = (req, res, next) => {
+  const id = parseInt(req.params.id)
+  const data = req.body
+
+  const index = sampleData.findIndex((item) => item.id === id)
+  sampleData[index] = { ...data }
+
+  res.status(200)
+  return res.json(data)
+}
+
+const remove = (req, res, next) => {
+  const id = parseInt(req.params.id)
+
+  const index = sampleData.findIndex((item) => item.id === id)
+
+  const removeData = sampleData.splice(index, 1)
+
+  res.status(200)
+  res.json(removeData)
+}
+
+export { list, detail, create, update, remove }

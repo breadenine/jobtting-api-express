@@ -1,12 +1,16 @@
 import express from 'express'
 const router = express.Router()
 
-import { getIndex, detail } from '../../controllers/v1/jobs.controller'
+import { list, detail, create, update, remove } from '../../controllers/v1/jobs.controller'
 
-router.get('/', getIndex)
+router.get('/', list)
 
 router.get('/:id', detail)
 
-// router.get('/company', company)
+router.post('/', create)
+
+router.patch('/:id', update)
+
+router.delete('/:id', remove)
 
 export default router
