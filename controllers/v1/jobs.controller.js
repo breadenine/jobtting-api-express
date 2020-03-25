@@ -68,7 +68,7 @@ const create = (req, res, next) => {
   const data = req.body
 
   sampleData.push({
-    id: sampleData.length,
+    id: sampleData.length + 1,
     ...data
   })
 
