@@ -1,11 +1,3 @@
-// import axios from 'axios'
-// import { SERVICE_KEY } from '../../config'
-// import { uuid } from '../../utils/uuid'
-
-const debug = require('debug')('jobtting-api-express:server')
-
-// require('dotenv').config()
-
 const sampleData = [
   {
     id: 1,

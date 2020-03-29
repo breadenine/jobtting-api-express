@@ -1,9 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import express from 'express'
-// const debug = require("debug")("jobtting-api-express:server");
 
 const router = express.Router()
+
 const indexJs = path.basename(__filename)
 
 fs.readdirSync(__dirname)

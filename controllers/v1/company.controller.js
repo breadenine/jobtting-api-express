@@ -1,10 +1,6 @@
 import axios from 'axios'
 import { SERVICE_KEY } from '../../config'
 
-const debug = require('debug')('jobtting-api-express:server')
-
-require('dotenv').config()
-
 const list = async (req, res, next) => {
   const companyName = req.query.name
 
