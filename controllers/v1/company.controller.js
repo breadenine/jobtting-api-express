@@ -10,7 +10,7 @@ const list = async (req, res, next) => {
     params: {
       wkpl_nm: companyName,
       pageNo: 1,
-      numOfRows: 1
+      numOfRows: 10
     }
   })
 
