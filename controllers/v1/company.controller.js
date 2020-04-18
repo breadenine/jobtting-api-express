@@ -1,18 +1,11 @@
-import axios from 'axios'
-import { SERVICE_KEY } from '../../config'
+import CompanyService from '../../services/company.service'
 
 const list = async (req, res, next) => {
   const companyName = req.query.name
 
-  const key = SERVICE_KEY
+  const companyService = new CompanyService()
 
-  const { data } = await axios.get(`http://apis.data.go.kr/B552015/NpsBplcInfoInqireService/getBassInfoSearch?serviceKey=${key}`, {
-    params: {
-      wkpl_nm: companyName,
-      pageNo: 1,
-      numOfRows: 10
-    }
-  })
+  const data = await companyService.getCompanies({ companyName })
 
   return res.json(data)
 }
